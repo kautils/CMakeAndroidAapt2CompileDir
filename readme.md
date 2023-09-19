@@ -10,17 +10,19 @@ set(__rc_libs
         libs/res-1
         libs/res-2)
 foreach(__var ${__rc_libs}) 
-    CMakeAndroidAapt2CompileDir(
+    CMakeAndroidAapt2CompileDir( result
         AAPT2 ${__aapt2}
         DIR ${__var}
         DESTINATION ${__rc_dst} 
         VERBOSE
     )
+    message(${result.output})
 endforeach()
-
 # will output 
 #    dst/res-0.zip
 #    dst/res-1.zip
 #    dst/res-2.zip
+
+
 
 ```
