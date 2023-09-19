@@ -15,7 +15,7 @@ endmacro()
 git_clone(https://raw.githubusercontent.com/kautils/CMakeIsPathUpdated/v0.0.1/CMakeIsPathUpdated.cmake)
 
 
-macro(CMakeAndroidAapt2CompileDir)
+macro(CMakeAndroidAapt2CompileDir result)
     
     set(${PROJECT_NAME}_m_evacu ${m})
     set(m ${PROJECT_NAME}.CMakeAndroidAapt2CompileDir)
@@ -52,4 +52,6 @@ macro(CMakeAndroidAapt2CompileDir)
     unset(${m}_unsetter)
     set(m ${${PROJECT_NAME}_m_evacu})
     unset(${PROJECT_NAME}_CMakeAndroidAapt2CompileDir)
+    
+    set(${result}.output ${${m}_dst})
 endmacro()
