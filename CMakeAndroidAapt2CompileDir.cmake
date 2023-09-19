@@ -43,6 +43,9 @@ macro(CMakeAndroidAapt2CompileDir result)
             message("[${m}] : ${${m}_AAPT2} compile --dir \"${${m}_DIR}\" -o \"${${m}_DESTINATION}/${${m}_name}.zip\"")
         endif()
         execute_process(COMMAND ${${m}_AAPT2} compile --dir "${${m}_DIR}" -o "${${m}_DESTINATION}/${${m}_name}.zip")
+        set(${result}.created TRUE)
+    else()
+        set(${result}.created FALSE)
     endif()
     set(${result}.output ${${m}_dst})
     
@@ -52,5 +55,7 @@ macro(CMakeAndroidAapt2CompileDir result)
     unset(${m}_unsetter)
     set(m ${${PROJECT_NAME}_m_evacu})
     unset(${PROJECT_NAME}_CMakeAndroidAapt2CompileDir)
+    
+    
     
 endmacro()
